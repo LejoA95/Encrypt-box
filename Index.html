@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <!-- Fuentes -->
     <link
@@ -17,6 +17,9 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Sweet alert -->
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <title>Encriptador de texto</title>
 </head>
@@ -31,7 +34,7 @@
         <section class="textarea_buttons">
             <form>
                 <textarea class="text_entry-encrypted border_ppal" name="text_entry-encrypted" id=""
-                    placeholder="Ingresa el texto que quieres ingresar"></textarea>
+                    placeholder="Ingresa el texto aqui"></textarea>
             </form>
             <div class="info_text-icon">
                 <span class="material-symbols-outlined icon_info">error</span>
@@ -39,7 +42,8 @@
             </div>
             <div class="section_buttons-encrypt">
                 <button type="button" class="button_structure button_ppal" onclick="btnEncrypt()">Encriptar</button>
-                <button type="button" class="button_structure button_sec" onclick="btnDesEncrypt()">Desencriptar</button>
+                <button type="button" class="button_structure button_sec"
+                    onclick="btnDesEncrypt()">Desencriptar</button>
             </div>
         </section>
         <section>
@@ -68,8 +72,10 @@
     <!-- <footer></footer> -->
 
 
-
-    <script src="./script.js"></script>
+    <!-- Script -->
+    <script src="./script/script.js"></script>
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -1,20 +1,26 @@
+
 const entryText = document.querySelector(".text_entry-encrypted");
 const message = document.querySelector(".text_output-encrypted");
 const messageInit = document.querySelector(".content_message-init");
 const outputText = document.querySelector(".content_output-text");
-const buttonCopy = document.querySelector(".button_copy")
+const buttonCopy = document.querySelector(".button_copy");
 
 outputText.style.display = "none";
 
 function btnEncrypt() {
   const textEncrypt = encrypt(entryText.value);
+  if (/[\d!@#$%^&*()_+{}\[\]:;<>,.?/~`'"|\\]/.test(textEncrypt)) {
+    alert("Los números y símbolos no están permitidos en el texto encriptado.");
+    return;
+}
   message.innerHTML = textEncrypt;
   entryText.value = "";
   if (!textEncrypt == 0) {
     messageInit.style.display = "none";
     outputText.style.display = "grid";
   }
-  buttonCopy.innerHTML = '<span class="material-symbols-outlined icon_copy">content_copy</span>Copiar';
+  buttonCopy.innerHTML =
+    '<span class="material-symbols-outlined icon_copy">content_copy</span>Copiar';
 }
 function encrypt(stringEncrypt) {
   let matrizCode = [
@@ -41,13 +47,18 @@ function encrypt(stringEncrypt) {
 
 function btnDesEncrypt() {
   const textEncrypt = desEncrypt(entryText.value);
+  if (/[\d!@#$%^&*()_+{}\[\]:;<>,.?/~`'"|\\]/.test(textEncrypt)) {
+    alert("Los números y símbolos no están permitidos en el texto encriptado.");
+    return;
+}
   message.innerHTML = textEncrypt;
   entryText.value = "";
   if (!textEncrypt == 0) {
     messageInit.style.display = "none";
     outputText.style.display = "grid";
   }
-  buttonCopy.innerHTML = '<span class="material-symbols-outlined icon_copy">content_copy</span>Copiar'
+  buttonCopy.innerHTML =
+    '<span class="material-symbols-outlined icon_copy">content_copy</span>Copiar';
 }
 
 function desEncrypt(stringDesEncrypt) {
@@ -73,14 +84,15 @@ function desEncrypt(stringDesEncrypt) {
   return stringDesEncrypt;
 }
 
-function btnCopy(){
-    const textCopy = document.querySelector('.text_output-encrypted').innerText;
+function btnCopy() {
+  const textCopy = document.querySelector(".text_output-encrypted").innerText;
 
-    try {
-        navigator.clipboard.writeText(textCopy);
-        // console.log('Texto copiado');
-        buttonCopy.innerHTML = '<span class="material-symbols-outlined icon_copy">done</span>Copiado';
-    } catch (err) {
-        console.error('Error al copiar el texto:', err);
-    }
+  try {
+    navigator.clipboard.writeText(textCopy);
+    // console.log('Texto copiado');
+    buttonCopy.innerHTML =
+      '<span class="material-symbols-outlined icon_copy">done</span>Copiado';
+  } catch (err) {
+    console.error("Error al copiar el texto:", err);
+  }
 }
